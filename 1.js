@@ -1,13 +1,13 @@
 'use strict';
 
 const H = require('highland');
-const charGenerator = require('./charGenerator');
+const getChars = require('./getChars');
 
 const toNumber = (x) => x === '(' ? 1 : -1;
-const getChars = () => H(charGenerator('input-1.txt')).map(toNumber);
+const getNumbers = () => getChars('input-1.txt').map(toNumber);
 
 // first half
-getChars().reduce1(H.add).each(H.log);
+getNumbers().reduce1(H.add).each(H.log);
 
 // second half
 const floorAndIndex = (acc, n) => {
@@ -19,4 +19,4 @@ const floorAndIndex = (acc, n) => {
 	return acc;
 };
 
-getChars().reduce({ floor: 0, index: 0 }, floorAndIndex).each(H.log);
+getNumbers().reduce({ floor: 0, index: 0 }, floorAndIndex).each(H.log);
