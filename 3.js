@@ -41,7 +41,6 @@ getMovements()
 	.each(H.log);
 
 // second half
-
 const santa = visitHouse('santa');
 const robo = visitHouse('robo');
 const visitHouses = (acc, moves) => santa(robo(acc, moves[1]), moves[0]);
