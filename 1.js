@@ -19,4 +19,4 @@ const floorAndIndex = (acc, n) => {
 	return acc;
 };
 
-getNumbers().reduce({ floor: 0, index: 0 }, floorAndIndex).each(H.log);
+getNumbers().reduce(floorAndIndex, { floor: 0, index: 0 }).each(H.log);

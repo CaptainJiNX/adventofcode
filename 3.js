@@ -36,7 +36,7 @@ const countHouses = (s) => s.pluck('houses')
 
 // first half
 getMovements()
-	.reduce({ houses: {} }, visitHouse('santa'))
+	.reduce(visitHouse('santa'), { houses: {} })
 	.through(countHouses)
 	.each(H.log);
 
@@ -47,6 +47,6 @@ const visitHouses = (acc, moves) => santa(robo(acc, moves[1]), moves[0]);
 
 getMovements()
 	.batch(2)
-	.reduce({ houses: {} }, visitHouses)
+	.reduce(visitHouses, { houses: {} })
 	.through(countHouses)
 	.each(H.log);
